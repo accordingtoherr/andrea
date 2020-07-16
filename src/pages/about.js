@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import React from "react"
 import Layout from "../layouts/Layout"
-import Newsletter from "../components/Newsletter"
+
 import SiteMetadata from "../components/SiteMetadata"
 
 const AboutPage = ({ data }) => (
@@ -18,19 +18,11 @@ const AboutPage = ({ data }) => (
             </h1>
 
             <h2 className="text-xl leading-tight font-semibold tracking-tight text-blue-600 sm:text-2xl">
-              Interdum et malesuada fames ac ante.
+           Marketing, Writing, Content Managemnet
             </h2>
             <div className="mt-4 leading-loose">
-              Curabitur non hendrerit dolor. Interdum et malesuada fames ac ante
-              ipsum primis in faucibus. Ut&nbsp;sapien ex, fringilla sed
-              consectetur et, pharetra eget lacus.
-              <br />
-              <br />
-              Morbi sem leo, varius ut tempus et, tempor sit amet nibh.
-              Curabitur fermentum feugiat libero, sed egestas lorem aliquam et.
-              Praesent id mi purus. Morbi sem leo, varius ut tempus et, tempor
-              sit amet nibh.
-              <br />
+            Marketing and communications pro with a passion for storytelling. Proven ability to lead brand messaging, collaborate across teams, grow brand awareness, and run successful campaigns. 
+          
               <br />
               I'm happy to hear from you:
               <br />
@@ -52,7 +44,7 @@ const AboutPage = ({ data }) => (
         </div>
       </div>
     </div>
-    <Newsletter />
+ 
   </Layout>
 )
 
