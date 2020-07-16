@@ -15,10 +15,8 @@ module.exports = {
       { name: "About", to: "/about" },
     ],
     links: {
-      facebook: "https://www.facebook.com/",
-      instagram: "https://www.instagram.com/",
-      pinterest: "https://pinterest.com/",
-      twitter: "https://twitter.com/",
+      podcast: "https://open.spotify.com/show/7gAyKA4r5R2F6R0zkJiwra?si=Julm_H0KT3qmxV_VhzDCoA",
+      linkedin: "https://www.linkedin.com/in/andrearichard/",
     },
     locale: "en",
     title: `Andrea`,

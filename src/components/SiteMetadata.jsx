@@ -35,8 +35,8 @@ const SiteMetadata = ({ title, description, image }) => {
       <meta property="og:site_name" content={siteTitle} />
       <meta property="og:image" content={image} />
       <meta property="og:description" content={description} />
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:image" content={image} />
+     
+      
     </Helmet>
   )
 }
@@ -48,7 +48,7 @@ SiteMetadata.propTypes = {
 }
 
 SiteMetadata.defaultProps = {
-  image: "/social.png",
+  // image: "/social.png",
 }
 
 export default SiteMetadata

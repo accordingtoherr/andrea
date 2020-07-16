@@ -27,17 +27,17 @@ const AboutPage = ({ data }) => (
               I'm happy to hear from you:
               <br />
               <a
-                href="mailto:contact@johndoe.com"
+                href="mailto:andrearichard954@gmail.com"
                 className="border-b border-gray-500 hover:border-blue-600 hover:text-blue-600"
               >
-                contact@johndoe.com
+                andrearichard954@gmail.com
               </a>
             </div>
           </div>
           <div className="w-full md:w-1/2 xl:w-2/5 md:pl-12">
             <Img
               fluid={data.author.childImageSharp.fluid}
-              alt="John Doe"
+              alt="Andrea"
               className="rounded-md shadow-md"
             />
           </div>

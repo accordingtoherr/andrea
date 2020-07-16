@@ -17,7 +17,7 @@ const IndexPage = ({ data }) => {
         {data.portfolio && data.portfolio.nodes.length > 0 ? (
           <Cards items={data.portfolio.nodes} />
         ) : (
-          <div className="container">No projects found.</div>
+          <div className="container">Portfolio</div>
         )}
       </div>
      
