@@ -4,6 +4,11 @@ body {
   @apply .bg-white .font-sans .antialiased;
 }
 
+.img{
+  max-width: 200px;
+  max-height: 200px;
+}
+
 @tailwind components;
 
 @tailwind utilities;

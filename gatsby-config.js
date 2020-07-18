@@ -20,7 +20,7 @@ module.exports = {
     },
     locale: "en",
     title: `Andrea`,
-    description: `Andrea Richardson`,
+    description: `Andrea Richard`,
     author: `@johndoe`,
   },
   plugins: [
