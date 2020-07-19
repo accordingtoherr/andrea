@@ -75,7 +75,7 @@ export default props => {
 }
 
 export const query = graphql`
-  query PortfolioItemQUery($slug: String!) {
+  query article($slug: String!) {
     item: contentfulPortfolio(slug: { eq: $slug }) {
       description {
         description
@@ -104,4 +104,5 @@ export const query = graphql`
       url
     }
   }
+  
 `
