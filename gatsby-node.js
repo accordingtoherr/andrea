@@ -17,18 +17,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       thumbnail: ContentfulAsset
       url: String
     }
-    query MyQuery {
-      contentfulArticle {
-         articleTitle
-        articleText {
-          id
-        },
-      }
-    }
-    
-  `
-  createTypes(typeDefs)
-}
+    `
+    createTypes(typeDefs)
+  }
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -36,13 +27,16 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        article: allContentfulPortfolio {
-          nodes {
-            slug
-          }
+       allContentfulArticle {
 
+        nodes {
+          articleTitle
+          articleMedia {
+            contentful_id
+          }
         }
       }
+    }
     `).then(({ errors, data }) => {
       if (errors) {
         reject(errors)
