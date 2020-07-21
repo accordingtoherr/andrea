@@ -11,6 +11,7 @@ import Layout from "../layouts/Layout"
 export default props => {
   const {
     description,
+    article,
     gallery,
     name,
     related,
@@ -75,34 +76,46 @@ export default props => {
 }
 
 export const query = graphql`
-  query article($slug: String!) {
+   query article($slug: String!) {
     item: contentfulPortfolio(slug: { eq: $slug }) {
       description {
-        description
-      }
-      gallery {
-        id
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 960, quality: 85) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        title
-      }
-      name
-      related {
-        ...PortfolioCard
-      }
-      summary
-      thumbnail {
-        localFile {
-          publicURL
-        }
-      }
-      url
-    }
-  }
+         description
+       }
+       gallery {
+         id
+         localFile {
+           childImageSharp {
+             fluid(maxWidth: 960, quality: 85) {
+               ...GatsbyImageSharpFluid_withWebp
+             }
+           }
+         }
+         title
+       }
+       name
+       related {
+         ...PortfolioCard
+       }
+       summary
+       thumbnail {
+         localFile {
+           publicURL
+         }
+       }
+       url
+     }
+   }
   
+ `
 `
+// {
+//   allContentfulArticle {
+
+//    nodes {
+//      articleTitle
+//      articleMedia {
+//        contentful_id
+//      }
+//    }
+//  }
+// }`
