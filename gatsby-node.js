@@ -32,19 +32,16 @@ exports.createPages = ({ graphql, actions }) => {
     graphql(`
     
       {
-       allContentfulArticle {
-
-        nodes {
-          articleTitle
-          articleMedia {
-            contentful_id
-          }
+      allContentfulArticle {
+        {
+          ...SiteInformation
         }
-      
-  
-    
+      }
     }
     `
+    
+    
+    
     ).then(({ errors, data }) => {
       if (errors) {
       

@@ -33,19 +33,11 @@ Card.propTypes = {
 export default Card
 
 export const query = graphql`
-  fragment s on ContentfulArticle {
+ ContentfulArticle {
     allContentfulArticle {
-      edges {
-        node {
-          articleTitle
-          articleText {
-            id
-          }
-          articleMedia {
-            id
-          }
-        }
+      {
+        ...SiteInformation
       }
     }
-  }
+  
 `
