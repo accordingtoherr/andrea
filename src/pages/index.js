@@ -7,20 +7,22 @@ import Layout from "../layouts/Layout"
 import SiteMetadata from "../components/SiteMetadata"
 
 const IndexPage = ({ data }) => {
+  console.log(data.articles)
   return (
     <Layout>
-      <SiteMetadata title="Home" description="Portfolio of John Doe" />
+      <SiteMetadata title="Home" description="Portfolio of Andrea Richards" />
 
       <Hero />
 
-      <div className="bg-gray-100 py-12 lg:py-16">
+      {/* <div className="bg-gray-100 py-12 lg:py-16">
         {data.portfolio && data.portfolio.nodes.length > 0 ? (
           <Cards items={data.portfolio.nodes} />
         ) : (
           <div className="container">Portfolio</div>
         )}
       </div>
-     
+      */}
+    
     </Layout>
   )
 }
@@ -28,11 +30,19 @@ const IndexPage = ({ data }) => {
 export default IndexPage
 
 export const query = graphql`
-  query HomeQuery {
-    portfolio: allContentfulPortfolio {
-      nodes {
-        ...PortfolioCard
+{
+articles: allContentfulArticle {
+  edges {
+    node {
+      articleTitle
+      articleText {
+        id
+      }
+      articleMedia {
+        id
       }
     }
   }
+}
+}    
 `

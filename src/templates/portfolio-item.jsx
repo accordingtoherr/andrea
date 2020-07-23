@@ -18,8 +18,9 @@ export default props => {
     summary,
     thumbnail,
     url,
-  } = props.data.item
+  } = props.data.items
 
+  console.log(props.data.articles);
   return (
     <Layout>
       <SiteMetadata
@@ -76,46 +77,19 @@ export default props => {
 }
 
 export const query = graphql`
-   query article($slug: String!) {
-    item: contentfulPortfolio(slug: { eq: $slug }) {
-      description {
-         description
-       }
-       gallery {
-         id
-         localFile {
-           childImageSharp {
-             fluid(maxWidth: 960, quality: 85) {
-               ...GatsbyImageSharpFluid_withWebp
-             }
-           }
-         }
-         title
-       }
-       name
-       related {
-         ...PortfolioCard
-       }
-       summary
-       thumbnail {
-         localFile {
-           publicURL
-         }
-       }
-       url
-     }
-   }
-  
- `
+{
+articles: allContentfulArticle {
+  edges {
+    node {
+      articleTitle
+      articleText {
+        id
+      }
+      articleMedia {
+        id
+      }
+    }
+  }
+}
+}    
 `
-// {
-//   allContentfulArticle {
-
-//    nodes {
-//      articleTitle
-//      articleMedia {
-//        contentful_id
-//      }
-//    }
-//  }
-// }`

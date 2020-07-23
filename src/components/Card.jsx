@@ -8,13 +8,13 @@ const Card = props => {
 
   return (
     <div className="bg-white h-full shadow-sm rounded-md overflow-hidden group">
-      <Link to={`/${slug}`}>
+      <Link to={`/`}>
         <div className="group-hover:opacity-75 transition duration-150 ease-in-out">
-          <Img fluid={thumbnail.localFile.childImageSharp.fluid} alt={name} />
+          {/* <Img fluid={thumbnail.localFile.childImageSharp.fluid} alt={name} /> */}
         </div>
         <div className="p-4 sm:p-5">
-          <h1 className="sm:text-lg text-gray-900 font-semibold">{name}</h1>
-          <p className="text-sm sm:text-base text-gray-700">{summary}</p>
+          <h1 className="sm:text-lg text-gray-900 font-semibold">Article</h1>
+          <p className="text-sm sm:text-base text-gray-700">words</p>
         </div>
       </Link>
     </div>
@@ -33,19 +33,19 @@ Card.propTypes = {
 export default Card
 
 export const query = graphql`
-  fragment PortfolioCard on ContentfulPortfolio {
-    id
-    name
-    slug
-    thumbnail {
-      localFile {
-        childImageSharp {
-          fluid(maxWidth: 444, maxHeight: 342, quality: 85) {
-            ...GatsbyImageSharpFluid_withWebp
+  fragment s on ContentfulArticle {
+    allContentfulArticle {
+      edges {
+        node {
+          articleTitle
+          articleText {
+            id
+          }
+          articleMedia {
+            id
           }
         }
       }
     }
-    summary
   }
 `
