@@ -26,7 +26,7 @@ export default props => {
       <SiteMetadata
         title={name}
         description={summary}
-        image={thumbnail.localFile.publicURL}
+        image={props.articleMedia.localFile.childImageSharp.fluid}
       />
       <div className="bg-gray-0 py-12 lg:py-16">
         <div className="container">
@@ -49,7 +49,7 @@ export default props => {
               </h2>
               {description && (
                 <div className="my-4 text-base text-gray-700 whitespace-pre-line">
-                  {description.description}
+                  {props.articleText}
                 </div>
               )}
               {url && (

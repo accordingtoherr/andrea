@@ -1,4 +1,4 @@
-const path = require(`path`)
+// const path = require(`path`)
 
 // exports.createSchemaCustomization = ({ actions }) => {
 //   const { createTypes } = actions
@@ -22,22 +22,22 @@ const path = require(`path`)
 //   }
 
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+// exports.createPages = async ({ graphql, actions }) => {
+//   const { createPage } = actions
 
-  const result = await graphql(
-      `
-    {
-    allContentfulArticle {
-        edges{
-        node {,
-        }
-      }
-    }
-  `
-  )
+//   const result = await graphql(
+//       `
+//     {
+//     allContentfulArticle {
+//         edges{
+//         node {
+//         }
+//       }
+//     }
+//   `
+//   )
 
-  console.log('WE CAUGHT THE CONTENTFUL PAGE', result)
+  // console.log('WE CAUGHT THE CONTENTFUL PAGE', result)
 
 
     
@@ -77,4 +77,4 @@ exports.createPages = async ({ graphql, actions }) => {
   // })
 // }
 
-  }
+  
