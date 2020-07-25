@@ -69,8 +69,8 @@ inquirer
         `CONTENTFUL_SPACE_ID='${spaceId}'`,
         `CONTENTFUL_ACCESS_TOKEN='${accessToken}'`,
         ``,
-        `# https://www.gatsbyjs.org/packages/gatsby-plugin-mailchimp/?=mailchimp#mailchimp-endpoint`,
-        `MAILCHIMP_ENDPOINT='https://example.us10.list-manage.com/subscribe/post?u=123'`,
+        // `# https://www.gatsbyjs.org/packages/gatsby-plugin-mailchimp/?=mailchimp#mailchimp-endpoint`,
+        // `MAILCHIMP_ENDPOINT='https://example.us10.list-manage.com/subscribe/post?u=123'`,
       ].join("\n") + "\n"
 
     configFiles.forEach(file => {
