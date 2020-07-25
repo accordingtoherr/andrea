@@ -22,49 +22,59 @@ const path = require(`path`)
 //   }
 
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-
-
-
-  return new Promise((resolve, reject) => {
-    graphql(`
-    
-      
-      ContentfulArticle {
-        
-          ...SiteInformation
+  const result = await graphql(
+      `
+    {
+    allContentfulArticle {
+        edges{
+        node {,
         }
+      }
+    }
+  `
+  )
+
+  console.log('WE CAUGHT THE CONTENTFUL PAGE', result)
+
+
+    
+    // return new Promise((resolve, reject) => {
+      // graphql(`
+      //   {
+      //   allContentfulArticle {
+      //       nodes {
+      //        edges?
+      //       }
+      //     }
+      //   }
       
     
-  
-  
-  }  `
     
     
-    
-    ).then(({ errors, data }) => {
-      if (errors) {
+  //   ).then(({ errors, data }) => {
+  //     if (errors) {
       
-        reject(errors)
-      }
-      console.log('HERES DATA 1:', data)
+  //       reject(errors)
+  //     }
+  //     console.log('HERES DATA 1:', data)
 
-      if (data && data.portfolio) {
-        const component = path.resolve("./src/templates/portfolio-item.jsx")
-        data.portfolio.nodes.map(({ slug }) => {
-          createPage({
-            path: `/${slug}`,
-            component,
-            context: { slug },
-          })
-        })
-      }
+  //     if (data && data.portfolio) {
+  //       const component = path.resolve("./src/templates/portfolio-item.jsx")
+  //       data.portfolio.nodes.map(({ slug }) => {
+  //         createPage({
+            // path: 
+  //           component,
+  //           context: { slug },
+  //         })
+  //       })
+  //     }
 
-      resolve()
-    })
-  })
-}
+  //     resolve()
+  //   })
+  // })
+// }
 
-
+  }
