@@ -20,7 +20,7 @@ export default props => {
     url,
   } = props.data.items
 
-  console.log(props.data.articles);
+  console.log(props);
   return (
     <Layout>
       <SiteMetadata
