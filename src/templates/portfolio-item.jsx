@@ -4,6 +4,7 @@ import React from "react"
 import SiteMetadata from "../components/SiteMetadata"
 import Button from "../components/Button"
 import Cards from "../components/Cards"
+import Card from "../components/Cards"
 import Carousel from "../components/Carousel"
 
 import Layout from "../layouts/Layout"
@@ -23,18 +24,18 @@ export default props => {
   console.log(props);
   return (
     <Layout>
-      <SiteMetadata
+      {/* <SiteMetadata
         title={name}
         description={summary}
         image={props.articleMedia.localFile.childImageSharp.fluid}
-      />
+      /> */}
       <div className="bg-gray-0 py-12 lg:py-16">
         <div className="container">
           <div className="flex flex-wrap">
             <div className="w-full lg:w-2/3 pb-8">
               {gallery && gallery.length === 1 && (
                 <Img
-                  fluid={gallery[0].localFile.childImageSharp.fluid}
+                  fluid={gallery[0].props.articleMedia.localFile.childImageSharp.fluid}
                   alt={name}
                 />
               )}
@@ -42,11 +43,11 @@ export default props => {
             </div>
             <div className="w-full lg:w-1/3 lg:pl-8 xl:pl-12">
               <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-1">
-                {name}
+                {props.articleTitle}
               </h1>
-              <h2 className="text-xl leading-tight font-semibold tracking-tight text-blue-600 sm:text-2xl">
+              {/* <h2 className="text-xl leading-tight font-semibold tracking-tight text-blue-600 sm:text-2xl">
                 {summary}
-              </h2>
+              </h2> */}
               {description && (
                 <div className="my-4 text-base text-gray-700 whitespace-pre-line">
                   {props.articleText}
@@ -63,11 +64,11 @@ export default props => {
       </div>
       {related && (
         <div className="bg-gray-100 py-12 lg:py-16">
-          <div className="container">
+          {/* <div className="container">
             <h2 className="text-3xl sm:text-4xl leading-tight font-extrabold tracking-tight text-gray-900 mb-8">
               You may also like
             </h2>
-          </div>
+          </div> */}
           <Cards items={related} hideLastItemOnMobile={true} />
         </div>
       )}
@@ -77,19 +78,25 @@ export default props => {
 }
 
 export const query = graphql`
-{
-articles: allContentfulArticle {
-  edges {
-    node {
-      articleTitle
-      articleText {
-        id
-      }
-      articleMedia {
-        id
+  fragment ContentfulFragment on ContentfulArticle {
+    articleTitle
+    articleText {
+      id
+      
+    }
+    articleMedia {
+        file{
+          url
+        }
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 444, maxHeight: 342, quality: 85) {
+              ...GatsbyImageSharpFluid
+            }
+          
+        }
       }
     }
   }
-}
-}    
 `
+

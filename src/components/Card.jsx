@@ -8,7 +8,7 @@ const Card = props => {
 console.log(props);
   return (
     <div className="bg-white h-full shadow-sm rounded-md overflow-hidden group">
-      <Link to={`/`}>
+      <Link to={``}>
          <div className="group-hover:opacity-75 transition duration-150 ease-in-out"> 
         {props.articleMedia && <Img fluid={props.articleMedia.localFile.childImageSharp.fluid} alt={name} />}
         {/* {props.articleMedia && <img src={`https:${props.articleMedia.file.url}`}></img> */}
