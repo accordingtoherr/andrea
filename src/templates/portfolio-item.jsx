@@ -16,6 +16,7 @@ export default props => {
     gallery,
     name,
     related,
+    slug,
     summary,
     thumbnail,
     url,
@@ -24,15 +25,15 @@ export default props => {
   console.log(props);
   return (
     <Layout>
-      {/* <SiteMetadata
+      <SiteMetadata
         title={name}
         description={summary}
         image={props.articleMedia.localFile.childImageSharp.fluid}
-      /> */}
+      />
       <div className="bg-gray-0 py-12 lg:py-16">
         <div className="container">
           <div className="flex flex-wrap">
-            <div className="w-full lg:w-2/3 pb-8">
+            {/* <div className="w-full lg:w-2/3 pb-8">
               {gallery && gallery.length === 1 && (
                 <Img
                   fluid={gallery[0].props.articleMedia.localFile.childImageSharp.fluid}
@@ -40,7 +41,7 @@ export default props => {
                 />
               )}
               {gallery && gallery.length > 1 && <Carousel images={gallery} />}
-            </div>
+            </div> */}
             <div className="w-full lg:w-1/3 lg:pl-8 xl:pl-12">
               <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-1">
                 {props.articleTitle}
@@ -48,7 +49,7 @@ export default props => {
               {/* <h2 className="text-xl leading-tight font-semibold tracking-tight text-blue-600 sm:text-2xl">
                 {summary}
               </h2> */}
-              {description && (
+              {/* {description && (
                 <div className="my-4 text-base text-gray-700 whitespace-pre-line">
                   {props.articleText}
                 </div>
@@ -57,7 +58,9 @@ export default props => {
                 <div className="mt-8">
                   <Button href={url}>More info</Button>
                 </div>
-              )}
+              )} */}
+
+              <p>{props.articleText}</p>
             </div>
           </div>
         </div>
@@ -80,8 +83,12 @@ export default props => {
 export const query = graphql`
   fragment ContentfulFragment on ContentfulArticle {
     articleTitle
+    
+
+
     articleText {
       id
+      
       
     }
     articleMedia {

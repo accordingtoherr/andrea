@@ -4,17 +4,18 @@ import PropTypes, { checkPropTypes } from "prop-types"
 import React from "react"
 
 const Card = props => {
-  const { name, slug, summary, thumbnail } = props
+  const { name, slug, articleTitle, articleMedia } = props
 console.log(props);
+
   return (
     <div className="bg-white h-full shadow-sm rounded-md overflow-hidden group">
-      <Link to={``}>
+      <Link to={`/${slug}`}>
          <div className="group-hover:opacity-75 transition duration-150 ease-in-out"> 
         {props.articleMedia && <Img fluid={props.articleMedia.localFile.childImageSharp.fluid} alt={name} />}
         {/* {props.articleMedia && <img src={`https:${props.articleMedia.file.url}`}></img> */}
         </div> 
         <div className="p-4 sm:p-5">
-          <h1 className="sm:text-lg text-gray-900 font-semibold">{props.articleTitle}</h1>
+          <h2 className="sm:text-lg text-gray-900 font-semibold">{props.articleTitle}</h2>
           {/* <p className="text-sm sm:text-base text-gray-700">words</p> */}
             {/* {props.localFile ? <Img fluid={props.localFile.childImageSharp.fluid} alt={name} /> : <img src="default image" />} */}
 
@@ -40,10 +41,14 @@ Card.propTypes = {
 export default Card
 
 export const query = graphql`
+
+
   fragment ContentfulFragment on ContentfulArticle {
     articleTitle
     articleText {
       id
+      
+      
       
     }
     articleMedia {
