@@ -81,7 +81,7 @@ export default props => {
 }
 
 export const query = graphql`
-  fragment ContentfulFragment on ContentfulArticle {
+  fragment MyContentfulFragment on ContentfulArticle {
     articleTitle
     
 

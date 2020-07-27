@@ -51,6 +51,8 @@ export const query = graphql`
       
       
     }
+
+    slug
     articleMedia {
         file{
           url
