@@ -69,17 +69,17 @@ inquirer
         `CONTENTFUL_SPACE_ID='${spaceId}'`,
         `CONTENTFUL_ACCESS_TOKEN='${accessToken}'`,
         ``,
-        // `# https://www.gatsbyjs.org/packages/gatsby-plugin-mailchimp/?=mailchimp#mailchimp-endpoint`,
-        // `MAILCHIMP_ENDPOINT='https://example.us10.list-manage.com/subscribe/post?u=123'`,
-      ].join("\n") + "\n"
 
-    configFiles.forEach(file => {
-      writeFileSync(file, fileContents, "utf8")
-      console.log(`Config file ${chalk.yellow(file)} written`)
-    })
-    return { spaceId, managementToken }
+  
+    ].join("\n") + "\n"
+
+  configFiles.forEach(file => {
+    writeFileSync(file, fileContents, "utf8")
+    console.log(`Config file ${chalk.yellow(file)} written`)
   })
-  .then(({ spaceId, managementToken }) => {
-    spaceImport({ spaceId, managementToken, content: exportFile })
-  })
-  .catch(error => console.error(error))
+  return { spaceId, managementToken }
+})
+.then(({ spaceId, managementToken }) => {
+  spaceImport({ spaceId, managementToken, content: exportFile })
+})
+.catch(error => console.error(error))
