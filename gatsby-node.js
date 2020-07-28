@@ -3,18 +3,23 @@ const path = require(`path`)
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
-    type contentfulArticleDescriptionTextNode implements Node {
-      description: String
-   
-    
-      id: ID!
-      name: String!
-      slug: String!
-      summary: String!
-      thumbnail: ContentfulAsset
-      url: String
+ 
+  type allContentfulArticle:  implements Node  {
+    allContentfulArticle {
+
+      edges {
+        node {
+          articleTitle
+          slug
+          articleText {
+            id
+            articleText
+       
+        }
+      }
     }
-  `
+  }
+`  
   createTypes(typeDefs)
 }
 
@@ -31,30 +36,19 @@ exports.createPages = ({ graphql, actions }) => {
     articleText {
       id
       
-      
+    
     }
-    articleMedia {
-        file{
-          url
-        }
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 444, maxHeight: 342, quality: 85) {
-              ...GatsbyImageSharpFluid
-            }
-          
-        }
-      }
-    }
+    slug
   }
 `
-    .then(({ errors, data }) => {
-      if (errors) {
-        reject(errors)
-      }
+).then(({ errors, data }) => {
+  if (errors) {
+    reject(errors)
+  }
 
-      if (data && data.portfolio) {
+      if (data && data.article) {
         const component = path.resolve("./src/templates/portfolio-item.jsx")
+       
         data.article.nodes.map(({ slug }) => {
           createPage({
             path: `/${slug}`,
