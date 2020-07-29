@@ -10,14 +10,18 @@ import Carousel from "../components/Carousel"
 
 
 
+
+
 import Layout from "../layouts/Layout"
-// const obj = JSON.parse(str);
+//  const obj = JSON.parse();
 const CountStateContext = React.createContext();
+const path = require(`path`);
 
 
+// const Template = props => {
+//   const { articleTitle, articleMedia } = props
 
-
-export default props => {
+ export default props => {
   
   // const {
     
@@ -53,8 +57,9 @@ export default props => {
               <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-1">
                 {props.pathContext.node.articleTitle}
               </h1>
+
               <p>
-                {props.pathContext.node.articleText.id}
+                {props.pathContext.articleText.data.theArticle.edges}
               </p>
 
 
