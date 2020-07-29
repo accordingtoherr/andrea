@@ -12,7 +12,7 @@ import Carousel from "../components/Carousel"
 
 import Layout from "../layouts/Layout"
 // const obj = JSON.parse(str);
-const CountStateContext = React.createContext()
+const CountStateContext = React.createContext();
 
 
 
@@ -21,13 +21,12 @@ export default props => {
   
   // const {
     
-  //   article,
-  //   node,
-    
+      
+  //   articleMedia,
   //   slug,
    
-  // } = props.node
-
+  //  } = props.node
+  
   console.log(props);
   return (
     
@@ -50,16 +49,26 @@ export default props => {
               )} */}
               {/* {gallery && gallery.length > 1 && <Carousel images={gallery} />} */}
             {/* </div>  */}
-            {/* <div className="w-full lg:w-1/3 lg:pl-8 xl:pl-12"> */}
+   
               <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-1">
                 {props.pathContext.node.articleTitle}
               </h1>
+              <p>
+                {props.pathContext.node.articleText.id}
+              </p>
+
+
+              {/* <p className="my-4 text-base text-gray-700 whitespace-pre-line">{props.data.articleText}</p> */}
+
+              {/* <Img fluid={props.articleMedia.localFile.childImageSharp.fluid} />  */}
+
+
 {/*              
                <div className="my-4 text-base text-gray-700 whitespace-pre-line">
                    <p>{props.pathContext.node.articleText.JSON.parse(str)}</p>
                  </div> 
 
-       <Img fluid={props.articleMedia.localFile.childImageSharp.fluid} alt={name} /> */}
+      //  <Img fluid={props.articleMedia.localFile.childImageSharp.fluid} alt={name} /> 
 
              
               {/* {url && (
