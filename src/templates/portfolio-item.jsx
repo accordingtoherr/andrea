@@ -9,25 +9,30 @@ import Carousel from "../components/Carousel"
 
 
 
-import Layout from "../layouts/Layout"
 
+import Layout from "../layouts/Layout"
+// const obj = JSON.parse(str);
 const CountStateContext = React.createContext()
 
 
-const {article, slug, articleTitle, articleText} = CountStateContext = React.createContext()
+
+
 export default props => {
-  const {
+  
+  // const {
     
-    article,
-    node,
+  //   article,
+  //   node,
     
-    slug,
+  //   slug,
    
-  } = props.node
+  // } = props.node
 
   console.log(props);
   return (
+    
     <Layout>
+     
       {/* /* <SiteMetadata
         title={props.node.articleTitle}
         
@@ -47,21 +52,19 @@ export default props => {
             {/* </div>  */}
             {/* <div className="w-full lg:w-1/3 lg:pl-8 xl:pl-12"> */}
               <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-1">
-                {CountStateContext.articleTitle}
+                {props.pathContext.node.articleTitle}
               </h1>
-               {/* <h2 className="text-xl leading-tight font-semibold tracking-tight text-blue-600 sm:text-2xl">
-                {props.node.articleTextsummary}
-              </h2>  */}
-              {/* {description && (
-                <div className="my-4 text-base text-gray-700 whitespace-pre-line">
-                  {props.articleText}
-                </div>
-              )}
-              {url && (
+             
+               <div className="my-4 text-base text-gray-700 whitespace-pre-line">
+                   <p>{props.pathContext.node.articleText.JSON.parse(str)}</p>
+                 </div> 
+
+             
+              {/* {url && (
                 <div className="mt-8">
                   <Button href={url}>More info</Button>
                 </div>
-              )} */}
+              )} *}
 
               {/*</Layout><p>{props.articleText}</p>
             </div>
