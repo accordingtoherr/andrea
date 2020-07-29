@@ -54,10 +54,12 @@ export default props => {
               <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-1">
                 {props.pathContext.node.articleTitle}
               </h1>
-             
+{/*              
                <div className="my-4 text-base text-gray-700 whitespace-pre-line">
                    <p>{props.pathContext.node.articleText.JSON.parse(str)}</p>
                  </div> 
+
+       <Img fluid={props.articleMedia.localFile.childImageSharp.fluid} alt={name} /> */}
 
              
               {/* {url && (
