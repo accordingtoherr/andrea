@@ -10,45 +10,45 @@ import Carousel from "../components/Carousel"
 import Layout from "../layouts/Layout"
 
 export default props => {
-  const {
-    description,
-    article,
-    gallery,
-    name,
-    related,
-    slug,
-    summary,
-    thumbnail,
-    url,
-  } = props.data.items
+  // const {
+  //   description,
+  //   article,
+  //   gallery,
+  //   name,
+  //   related,
+  //   slug,
+  //   summary,
+  //   thumbnail,
+  //   url,
+  // } = props.node
 
   console.log(props);
   return (
     <Layout>
-      <SiteMetadata
-        title={name}
-        description={summary}
-        image={props.articleMedia.localFile.childImageSharp.fluid}
-      />
-      <div className="bg-gray-0 py-12 lg:py-16">
+      {/* /* <SiteMetadata
+        title={props.node.articleTitle}
+        
+      
+      /> */}
+      {/* <div className="bg-gray-0 py-12 lg:py-16">
         <div className="container">
           <div className="flex flex-wrap">
-            {/* <div className="w-full lg:w-2/3 pb-8">
+             <div className="w-full lg:w-2/3 pb-8">
               {gallery && gallery.length === 1 && (
                 <Img
-                  fluid={gallery[0].props.articleMedia.localFile.childImageSharp.fluid}
+                  fluid={gallery[0].props.node.articleMedia.localFile.childImageSharp.fluid}
                   alt={name}
                 />
-              )}
-              {gallery && gallery.length > 1 && <Carousel images={gallery} />}
-            </div> */}
-            <div className="w-full lg:w-1/3 lg:pl-8 xl:pl-12">
-              <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-1">
-                {props.articleTitle}
-              </h1>
-              {/* <h2 className="text-xl leading-tight font-semibold tracking-tight text-blue-600 sm:text-2xl">
-                {summary}
-              </h2> */}
+              )} */}
+              {/* {gallery && gallery.length > 1 && <Carousel images={gallery} />} */}
+            {/* </div>  */}
+            {/* <div className="w-full lg:w-1/3 lg:pl-8 xl:pl-12"> */}
+              {/* <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-1">
+                {props.node.articleTitle}
+              </h1> */}
+               {/* <h2 className="text-xl leading-tight font-semibold tracking-tight text-blue-600 sm:text-2xl">
+                {props.node.articleTextsummary}
+              </h2>  */}
               {/* {description && (
                 <div className="my-4 text-base text-gray-700 whitespace-pre-line">
                   {props.articleText}
@@ -60,7 +60,7 @@ export default props => {
                 </div>
               )} */}
 
-              <p>{props.articleText}</p>
+              {/*</Layout><p>{props.articleText}</p>
             </div>
           </div>
         </div>
@@ -72,15 +72,16 @@ export default props => {
               You may also like
             </h2>
           </div> */}
-          <Cards items={related} hideLastItemOnMobile={true} />
+          {/*<Cards items={related} hideLastItemOnMobile={true} />
         </div>
-      )}
+      )} */}
      
     </Layout>
+  
   )
 }
 
-export const query = graphql`
+export const query = graphql`{
   fragment MyContentfulFragment on ContentfulArticle {
     articleTitle
     
@@ -104,6 +105,5 @@ export const query = graphql`
         }
       }
     }
-  }
-`
+  }`
 
