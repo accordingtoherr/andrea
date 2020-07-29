@@ -7,20 +7,23 @@ import Cards from "../components/Cards"
 import Card from "../components/Cards"
 import Carousel from "../components/Carousel"
 
+
+
 import Layout from "../layouts/Layout"
 
+const CountStateContext = React.createContext()
+
+
+const {article, slug, articleTitle, articleText} = CountStateContext = React.createContext()
 export default props => {
-  // const {
-  //   description,
-  //   article,
-  //   gallery,
-  //   name,
-  //   related,
-  //   slug,
-  //   summary,
-  //   thumbnail,
-  //   url,
-  // } = props.node
+  const {
+    
+    article,
+    node,
+    
+    slug,
+   
+  } = props.node
 
   console.log(props);
   return (
@@ -44,7 +47,7 @@ export default props => {
             {/* </div>  */}
             {/* <div className="w-full lg:w-1/3 lg:pl-8 xl:pl-12"> */}
               <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-1">
-                {props.data.node.articleTitle}
+                {CountStateContext.articleTitle}
               </h1>
                {/* <h2 className="text-xl leading-tight font-semibold tracking-tight text-blue-600 sm:text-2xl">
                 {props.node.articleTextsummary}
