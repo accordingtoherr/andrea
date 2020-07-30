@@ -8,20 +8,24 @@ import Card from "../components/Cards"
 import Carousel from "../components/Carousel"
 
 
-
-
-
-
 import Layout from "../layouts/Layout"
 //  const obj = JSON.parse();
-const CountStateContext = React.createContext();
-const path = require(`path`);
+const {useContext, useState, createContext} = React
+
+
+// export const MyProvider = MyContext.Provider
+// export const MyConsumer = MyContext.Consumer
+// // const path = require(`path`);
+// export default MyContext;
 
 
 // const Template = props => {
 //   const { articleTitle, articleMedia } = props
 
- export default props => {
+//  export default props => {
+
+
+  const AppContext = createContext()
   
   // const {
     
@@ -30,6 +34,18 @@ const path = require(`path`);
   //   slug,
    
   //  } = props.node
+
+
+  function AppProvider(props) {
+    const [count, setCount] = useState(0)
+    const value = { count, setCount }
+    return (
+      <AppContext.Provider value={value}>
+        {props.children}
+      </AppContext.Provider>
+    )
+=
+
   
   console.log(props);
   return (
@@ -58,9 +74,9 @@ const path = require(`path`);
                 {props.pathContext.node.articleTitle}
               </h1>
 
-              <p>
-                {props.pathContext.articleText.data.theArticle.edges}
-              </p>
+            <p>
+                {props.pathContext.node.articleText}
+              </p> 
 
 
               {/* <p className="my-4 text-base text-gray-700 whitespace-pre-line">{props.data.articleText}</p> */}
