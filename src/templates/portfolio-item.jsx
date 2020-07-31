@@ -1,5 +1,8 @@
 import React from "react"
 import Layout from "../layouts/Layout"
+
+
+
 export default function ArticleItem({ pageContext }) {
   const article = pageContext.node;
 
@@ -12,11 +15,13 @@ export default function ArticleItem({ pageContext }) {
 
       <p>
         {
-          // Iterate over the array of content items within the `articleText` node
+    
           article.articleText.json.content.map(element => {
+            console.log( article)
             // Each `content` item has an associated `nodeType`, which is basically just an HTML element. 
             // So, add a case for each node type to render it properly.
             if (element.nodeType === 'paragraph') {
+             
               return (
                 <p>{
                   // Each content element can have its OWN array of child `content` items, 
@@ -26,7 +31,8 @@ export default function ArticleItem({ pageContext }) {
                   // so that you don't need to manually define this handler for each parent `nodeType`. 
                   element.content.map(content => {
                     if (content.nodeType !== 'text') {
-                      return (<span>Unknown content type <em>{content.nodeType}</em></span>);
+                    
+                      return (<span>{article.articleText.json}<em>{content.nodeType}</em></span>);
                     }
                     return (content.value);
                   })
@@ -34,12 +40,14 @@ export default function ArticleItem({ pageContext }) {
               );
             }
             // @TODO Add cases for other `nodeType`s. 
-            else {
-              return (<><strong>Unknown nodeType <em>{element.nodeType}</em></strong><br /></>);
-            }
+            // else {
+            //   return (<><strong>Unknown nodeType <em>{element.nodeType}</em></strong><br /></>);
+            // }
           })
+        
         }
       </p>
+a
     </Layout>
   )
 }
