@@ -31,7 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
         node {
       articleTitle
       articleText {
-        id
+        json
       }
       slug
     }}

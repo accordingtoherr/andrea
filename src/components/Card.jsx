@@ -44,10 +44,12 @@ export const query = graphql`
 
 
   fragment ContentfulFragment on ContentfulArticle {
+
     articleTitle
+
     articleText {
-      id
-      
+      json
+    
       
       
     }
