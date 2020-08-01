@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../layouts/Layout"
+import "../styles/style.css"
 
 
 
@@ -37,13 +38,23 @@ export default function ArticleItem({ pageContext }) {
   return (
 
     <Layout>
+        <div className="container py-12 lg:pb-16">
+          
+
+
+
+
+
       <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-1">
         {article.articleTitle}
       </h1>
 
-      <div>
-        <p>{render(article.articleText.json)}</p>
+      
+        <div className="flex flex-wrap">
+        <p className="articletext">{render(article.articleText.json)}</p>
       </div>
+      </div>
+     
     </Layout>
   )
 }
