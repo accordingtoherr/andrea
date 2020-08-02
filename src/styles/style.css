@@ -9,6 +9,7 @@ body {
   max-height: 200px;
 }
 
+
 @tailwind components;
 
 @tailwind utilities;

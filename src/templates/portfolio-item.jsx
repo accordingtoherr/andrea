@@ -6,6 +6,7 @@ import "../styles/style.css"
 
 function render(node) {
   // If this is an array of nodes, render each one individually
+  
   if (Array.isArray(node)) {
     // Render every node within the array
     return node.map(render);
@@ -13,12 +14,18 @@ function render(node) {
 
   // This is the top level node; `article.articleText.json` should ALWAYS be a "document". 
   if (node.nodeType === 'document') {
+    
     return render(node.content);
   }
 
   // If the node is a paragraph, create a paragraph element then render the contents. 
   if (node.nodeType === 'paragraph') {
-    return (<p>{render(node.content)}</p>);
+    return (<p className="para">{render(node.content)}</p>);
+  }
+
+
+  if (node.nodeType === 'list-item') {
+    return (<ol>{render(node.content)}</ol>)
   }
 
   // Text nodes can't contain anything else, just render the inner value. 
@@ -38,6 +45,9 @@ export default function ArticleItem({ pageContext }) {
   return (
 
     <Layout>
+
+
+<div className="bg-gray-100 py-12 lg:py-16">
         <div className="container py-12 lg:pb-16">
           
 
@@ -51,7 +61,11 @@ export default function ArticleItem({ pageContext }) {
 
       
         <div className="flex flex-wrap">
+        <div className="mt-4 leading-loose">
         <p className="articletext">{render(article.articleText.json)}</p>
+        <ol>{render(article.articleText.json)}</ol>
+      </div>
+      </div>
       </div>
       </div>
      
