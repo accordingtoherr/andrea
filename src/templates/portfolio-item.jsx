@@ -28,12 +28,26 @@ function render(node) {
     return (<ol>{render(node.content)}</ol>)
   }
 
-  
+
+   if (node.nodeType === 'unordered-list') {
+    return (<ul>{render(node.content)}</ul>)
+  }
+
   if (node.nodeType === 'unordered-listheading-2') {
     return (<ul>{render(node.content)}</ul>)
   }
 
+  if (node.nodeType === 'heading-2') {
+    return (<h2>{render(node.content)}</h2>)
+  }
+
+  
   if (node.nodeType === 'hyperlink') {
+    return (<a>{render(node.content)}</a>)
+  }
+
+  
+  if (node.nodeType === 'ordered-list') {
     return (<a>{render(node.content)}</a>)
   }
 
@@ -73,8 +87,12 @@ export default function ArticleItem({ pageContext }) {
         <div className="flex flex-wrap">
         <div className="mt-4 leading-loose">
         <p className="articletext">{render(article.articleText.json)}</p>
+        <div className="flex flex-wrap">
         <ol>{render(article.articleText.json)}</ol>
+        <ul>{render(article.articleText.json)}</ul>
       </div>
+
+        </div>
       </div>
       </div>
       </div>
