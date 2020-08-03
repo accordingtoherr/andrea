@@ -28,6 +28,16 @@ function render(node) {
     return (<ol>{render(node.content)}</ol>)
   }
 
+  
+  if (node.nodeType === 'unordered-listheading-2') {
+    return (<ul>{render(node.content)}</ul>)
+  }
+
+  if (node.nodeType === 'hyperlink') {
+    return (<a>{render(node.content)}</a>)
+  }
+
+
   // Text nodes can't contain anything else, just render the inner value. 
   if (node.nodeType === 'text') {
     return (node.value);
