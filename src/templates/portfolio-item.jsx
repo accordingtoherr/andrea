@@ -5,6 +5,7 @@ import "../styles/style.css"
 
 
 function render(node) {
+  console.log(node)
   // If this is an array of nodes, render each one individually
   
   if (Array.isArray(node)) {
@@ -28,6 +29,11 @@ function render(node) {
     return (<ol>{render(node.content)}</ol>)
   }
 
+  if (node.nodeType === 'list-item') {
+    return (<ol>{render(node.content)}</ol>)
+  }
+
+
 
    if (node.nodeType === 'unordered-list') {
     return (<ul>{render(node.content)}</ul>)
@@ -45,6 +51,11 @@ function render(node) {
   if (node.nodeType === 'hyperlink') {
     return (<a>{render(node.content)}</a>)
   }
+
+  if (node.nodeType === 'hr') {
+    return (<a>{render(node.content)}</a>)
+  }
+
 
   
   if (node.nodeType === 'ordered-list') {
@@ -88,8 +99,11 @@ export default function ArticleItem({ pageContext }) {
         <div className="mt-4 leading-loose">
         <p className="articletext">{render(article.articleText.json)}</p>
         <div className="flex flex-wrap">
+        <div className="flex flex-wrap">
         <ol>{render(article.articleText.json)}</ol>
+        </div>
         <ul>{render(article.articleText.json)}</ul>
+        <hr></hr>
       </div>
 
         </div>
