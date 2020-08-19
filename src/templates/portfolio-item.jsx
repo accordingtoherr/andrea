@@ -95,19 +95,15 @@ export default function ArticleItem({ pageContext }) {
       </h1>
 
       
-        <div className="flex flex-wrap">
+ 
         <div className="mt-4 leading-loose">
         <p className="articletext">{render(article.articleText.json)}</p>
-        <div className="flex flex-wrap">
-        <div className="flex flex-wrap">
+      
         <ol>{render(article.articleText.json)}</ol>
         </div>
         <ul>{render(article.articleText.json)}</ul>
         <hr></hr>
-      </div>
-
-        </div>
-      </div>
+    
       </div>
       </div>
      
