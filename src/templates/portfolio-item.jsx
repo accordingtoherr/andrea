@@ -98,12 +98,12 @@ export default function ArticleItem({ pageContext }) {
  
         <div className="mt-4 leading-loose">
         <p className="articletext">{render(article.articleText.json)}</p>
-      
+        <div className="mt-4 leading-loose">
         <ol>{render(article.articleText.json)}</ol>
         </div>
         <ul>{render(article.articleText.json)}</ul>
         <hr></hr>
-    
+    </div>
       </div>
       </div>
      
