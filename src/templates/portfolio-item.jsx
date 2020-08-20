@@ -55,6 +55,9 @@ function render(node) {
   if (node.nodeType === 'hr') {
     return (<a>{render(node.content)}</a>)
   }
+  if (node.nodeType === 'url') {
+    return (<a>{render(node.content)}</a>)
+  }
 
 
   
@@ -82,30 +85,9 @@ export default function ArticleItem({ pageContext }) {
     <Layout>
 
 
-<div className="bg-gray-100 py-12 lg:py-16">
-        <div className="container py-12 lg:pb-16">
-          
-
-
-
-
-
-      <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-1">
-        {article.articleTitle}
-      </h1>
-
-      
- 
-        <div className="mt-4 leading-loose">
-        <p className="articletext">{render(article.articleText.json)}</p>
-        <div className="mt-4 leading-loose">
-        <ol>{render(article.articleText.json)}</ol>
-        </div>
-        <ul>{render(article.articleText.json)}</ul>
-        <hr></hr>
-    </div>
-      </div>
-      </div>
+<div className="mt-4 leading-loose container py-12 lg:pb-16 flex flex-wrap">
+  <div className="articletext">{render(article.articleText.json)}</div>
+</div>
      
     </Layout>
   )

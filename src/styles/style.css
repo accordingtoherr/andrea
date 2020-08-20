@@ -1,8 +1,13 @@
+
+
+.mt-4 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
 @tailwind base;
 
-body {
-  @apply .bg-white .font-sans .antialiased;
-}
 
 .img{
   max-width: 200px;
