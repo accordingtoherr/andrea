@@ -7,7 +7,7 @@ const Hero = () => (
      
       <br />
       <span className="text-blue-600">
-   I am an experienced marketing professional, welcome to my portfolio.
+      I’m a writer, editor and content marketer. Welcome to my portfolio. 
       </span>
     </h2>
   </div>

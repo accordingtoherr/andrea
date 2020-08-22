@@ -18,7 +18,7 @@ const AboutPage = ({ data }) => (
             </h1>
 
             <h2 className="text-xl leading-tight font-semibold tracking-tight text-blue-600 sm:text-2xl">
-           Marketing, Writing, Content Management
+            Writer, Editor, Content Marketer 
             </h2>
             <div className="mt-4 leading-loose">
             Marketing and communications pro with a passion for storytelling. Proven ability to lead brand messaging, collaborate across teams, grow brand awareness, and run successful campaigns. 
