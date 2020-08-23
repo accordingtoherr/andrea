@@ -85,7 +85,8 @@ export default function ArticleItem({ pageContext }) {
     <Layout>
 
 
-<div className="mt-4 leading-loose container py-12 lg:pb-16 flex flex-wrap">
+<div className="mt-4 leading-loose container py-12 lg:pb-16 flex flex-wrap space-x-3 ">
+  {/* <h1>{render(article.articleTitle.json)}</h1> */}
   <div className="articletext">{render(article.articleText.json)}</div>
 </div>
      
@@ -105,7 +106,7 @@ export default function ArticleItem({ pageContext }) {
 
 
 
-// export default function ArticleItem({ pageContext}) {
+// export default function ArticeItem({ pageContext}) {
 //   const article = pageContext.node;
 //   console.log(article)
 
