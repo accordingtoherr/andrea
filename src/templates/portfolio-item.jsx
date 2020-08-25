@@ -85,7 +85,7 @@ export default function ArticleItem({ pageContext }) {
     <Layout>
 
 
-<div className="mt-4 leading-loose container py-12 lg:pb-16 flex flex-wrap space-x-3 ">
+<div className="mt-4 leading-loose container py-12 lg:pb-16 flex flex-wrap space-x-3 "><br></br>
   {/* <h1>{render(article.articleTitle.json)}</h1> */}
   <div className="articletext">{render(article.articleText.json)}</div>
 </div>

@@ -4,8 +4,10 @@
   padding-left: 20px;
   padding-right: 20px;
 }
+p.para {
+padding: 0 0 1rem 0; 
 
-
+}
 @tailwind base;
 
 
