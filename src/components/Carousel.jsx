@@ -14,6 +14,7 @@ export const Carousel = ({ images }) => {
       clickable: true,
     },
   }
+  
   return (
     <Swiper {...swiperParams}>
       {images.map(image => {
